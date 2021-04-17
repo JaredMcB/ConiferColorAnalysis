@@ -1,0 +1,26 @@
+from PIL import Image
+
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+
+import os
+
+os.system('clr')
+
+orignial_directory = os.getcwd()
+
+os.chdir('D:\\first HW growth chamber photos for Python\\Official HeatWave Start April 30 2018\\April 1 2019 Chamber 1 Canon')
+
+filename = '2981 C1 W-HW 4 water.JPG'
+img = mpimg.imread(filename)
+
+value = np.array([164, 178,153]) # other values np.array([163, 178,153]), np.array([85, 135,48])
+
+Num_RGB = 0
+for row in img:
+    for RGB in row:
+        if np.array_equals(RGB,value):
+            Num_RGB = Num_RGB + 1
+            
+print(Num_RGB)
